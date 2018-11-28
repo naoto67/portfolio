@@ -1,6 +1,9 @@
 <template>
   <div class="comment">
-    
+    <div class="comment__content">
+      <p>{{ message }}</p>
+    </div>
+    <p class="comment__sign">▼</p>
   </div>
 </template>
 
@@ -17,7 +20,14 @@ export default {
   border: 1px #fff solid;
   border-radius: 10px;
   background-color: #000;
-  padding: 0 10px;
+  padding: 10px;
+  margin: 10px;
   text-align: left;
+  color: #ddd;
+  &__sign {
+    text-align: center;
+    animation: flashing 1.0s;
+    animation-iteration-count: infinite; 
+  }
 }
 </style>

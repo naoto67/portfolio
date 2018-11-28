@@ -7,18 +7,16 @@
 
 <script>
 import List from './components/list.vue'
-import Comment from './components/comment.vue'
 
 export default {
   name: 'App',
   components: {
-    List,
-    Comment
+    List
   },
   data() {
     return {
       command_items: [
-        { 'title': 'はなす' },
+        { 'title': 'はなす', message: 'sample' },
         { 'title': 'とくぎ' },
         { 'title': 'どうぐ' },
         { 'title': 'しらべる' },
@@ -38,6 +36,12 @@ export default {
 @font-face {
   font-family: 'PixelMplus10-Regular';
   src: './assets/fonts/PixelMplus10-Regular.ttf' format('truetype');
+}
+@keyframes flashing {
+  0% { opacity: 1.0 }
+  50% { opacity: 1.0 }
+  51% { opacity: 0.0 }
+  100% { opacity: 0.0 }
 }
 body{
   font-family: 'PixelMplus10-Regular';

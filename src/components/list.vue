@@ -2,11 +2,14 @@
   <div class="wrapper">
     <ul class="list">
       <li class="list__item"
-        v-for="(item, index) in items">
+        v-for="item in items"
+        v-on:click="sample(item)">
         <span class="item_selected">▶︎</span>
         {{ item.title }}</li>
     </ul>
-    <Comment></Comment>
+    <div v-show="message">
+      <Comment :message="message"></Comment>
+    </div>
   </div>
 </template>
 
@@ -21,10 +24,15 @@ export default {
   props: ['items'],
   data() {
     return {
-      item: ''
+      message: ''
     }
   },
-  
+  methods: {
+    sample(e) {
+      this.message = e.message
+      console.log(this.message)
+    }
+  }
 }
 </script>
 
@@ -38,6 +46,7 @@ export default {
   border-radius: 10px;
   background-color: #000;
   padding: 0 10px;
+  margin: 10px;
   list-style: none;
   text-align: left;
   &__item {
@@ -47,6 +56,8 @@ export default {
       color: #fff;
       .item_selected {
         display: inline-block;
+        animation: flashing 1.0s;
+        animation-iteration-count: infinite; 
       }
     }
     .item_selected {
