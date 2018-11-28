@@ -2,7 +2,7 @@
   <div class="wrapper">
     <ul class="list">
       <li class="list__item"
-        v-for="item in items"
+        v-for="item in command_items"
         v-on:click="sample(item)">
         <span class="item_selected">▶︎</span>
         {{ item.title }}</li>
@@ -21,10 +21,17 @@ export default {
     Comment
   },
   name: 'list',
-  props: ['items'],
   data() {
     return {
-      message: ''
+      message: '',
+      command_items: [
+        { 'title': 'はなす', message: '話す相手がいません' },
+        { 'title': 'とくぎ' },
+        { 'title': 'どうぐ' },
+        { 'title': 'しらべる' },
+        { 'title': 'つよさ' },
+        { 'title': 'さくせん'}
+      ]
     }
   },
   methods: {
@@ -38,7 +45,6 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   display: flex;
-  position: sticky;
 }
 .list {
   width: 100px;

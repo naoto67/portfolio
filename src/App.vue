@@ -1,29 +1,20 @@
 <template>
   <div id="app">
-    <CommandList :items="command_items"></CommandList>
+    <Status></Status>
+    <CommandList></CommandList>
   </div>
 </template>
 
 <script>
 import CommandList from './components/Commandlist.vue'
+import Status from './components/Status.vue'
 
 export default {
   name: 'App',
   components: {
-    CommandList
+    CommandList,
+    Status
   },
-  data() {
-    return {
-      command_items: [
-        { 'title': 'はなす', message: '話す相手がいません' },
-        { 'title': 'とくぎ' },
-        { 'title': 'どうぐ' },
-        { 'title': 'しらべる' },
-        { 'title': 'つよさ' },
-        { 'title': 'さくせん'}
-      ]
-    }
-  }
 }
 </script>
 
@@ -51,6 +42,9 @@ body{
   top: 0px;
   background: #000;
   font-size: 1.0em;
+}
+ul {
+  list-style: none;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
