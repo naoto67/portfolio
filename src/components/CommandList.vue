@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Comment from './comment.vue'
+import Comment from './Comment.vue'
 
 export default {
   components: {
@@ -30,7 +30,6 @@ export default {
   methods: {
     sample(e) {
       this.message = e.message
-      console.log(this.message)
     }
   }
 }
@@ -38,14 +37,15 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  display: block;
+  display: flex;
+  position: sticky;
 }
 .list {
   width: 100px;
   border: 1px #fff solid;
   border-radius: 10px;
   background-color: #000;
-  padding: 0 10px;
+  padding: 10px;
   margin: 10px;
   list-style: none;
   text-align: left;

@@ -1,22 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <List :items="command_items"></List>
+    <CommandList :items="command_items"></CommandList>
   </div>
 </template>
 
 <script>
-import List from './components/list.vue'
+import CommandList from './components/Commandlist.vue'
 
 export default {
   name: 'App',
   components: {
-    List
+    CommandList
   },
   data() {
     return {
       command_items: [
-        { 'title': 'はなす', message: 'sample' },
+        { 'title': 'はなす', message: '話す相手がいません' },
         { 'title': 'とくぎ' },
         { 'title': 'どうぐ' },
         { 'title': 'しらべる' },
