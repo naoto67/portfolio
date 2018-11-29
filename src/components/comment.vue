@@ -1,7 +1,7 @@
 <template>
-  <div class="comment">
+  <div class="comment" v-show="this.$store.state.message">
     <div class="comment__content">
-      <p>{{ message }}</p>
+      <p>{{ this.$store.state.message }}</p>
     </div>
     <p class="comment__sign">▼</p>
   </div>
@@ -10,7 +10,6 @@
 <script>
 export default {
   name: 'Comment',
-  props: ['message']
 }
 </script>
 

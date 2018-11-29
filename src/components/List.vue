@@ -2,7 +2,9 @@
   <ul class="list">
     <li class="list__item"
       v-for="(item, index) in items"
-      @click="sample(index)">
+      @click="click(index)"
+      @mouseover="mouseover(index)"
+      @mouseleave="mouseleave(index)">
       <span class="item_selected">▶︎</span>
       {{ item.title }}
     </li>
@@ -12,11 +14,22 @@
 <script>
 export default{
   name: 'List',
-  props: ['items'],
+  props: [
+    'items',
+    'clickFunc',
+    'mouseOverFunc',
+    'mouseLeaveFunc'
+  ],
   methods: {
-    sample(index) {
-      this.$emit('close', index)
-    } 
+    click(index) {
+      this.clickFunc(index)
+    },
+    mouseover(index) {
+      this.mouseOverFunc(index)
+    },
+    mouseleave() {
+      this.mouseLeaveFunc()
+    }
   }
 }
 </script>

@@ -1,8 +1,24 @@
 <template>
   <div class="item">
-    <List :items="title"></List>
-    <List :items="items"></List>
-    <List :items="bag"></List>
+    <div class="item__title">
+      <List v-show="2==this.$store.state.command"
+      :items="title" :click-func="childClick"
+      :mouseOverFunc="childMouseOver"
+      :mouseLeaveFunc="childMouseLeave"></List>
+    </div>
+    <div class="item__items">
+      <List :items="items" v-show="0==this.$store.state.item"
+      :mouseOverFunc="pass"
+      :mouseLeaveFunc="pass"
+      :clickFunc="pass"></List>
+      <List :items="bag" v-show="1==this.$store.state.item"
+      :mouseOverFunc="pass"
+      :mouseLeaveFunc="pass"
+      :clickFunc="pass"></List>
+    </div>
+    <div class="item__detail">
+      <h4 class="item__detail__content">sample</h4>
+    </div>
   </div>
 </template>
 
@@ -14,7 +30,6 @@ export default {
   components: {
     List
   },
-  props: ['item'],
   data() {
     return {
       title: [
@@ -31,18 +46,53 @@ export default {
       bag: [
         { 'title': 'ふしぎなタネ' },
         { 'title': 'せかいじゅのしずく'}
-      ]
-    }
+      ],
+    } 
+  },
+  methods: {
+    childClick(index) {
+    },
+    childMouseOver(index) {
+      this.$store.commit('changeItem', index)
+    },
+    childMouseLeave() {
+      // this.$store.commit('changeItem', null)
+    },
+    pass(index) {
+      
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .item {
-  width: 200px;
+  display: block;
   position: absolute;
-  margin: 0 10px;
-  right: 0;
-  top: 0;
+  top: 50px;
+  bottom: 0px;
+  left: 200px;
+  width: 500px;
+  height: 300px;
+  &__title {
+    width: 120px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  &__items {
+    width: 360px;
+    display: inline-block;
+  }
+  &__detail {
+    border: 1px #fff solid;
+    border-radius: 10px;
+    background-color: #000;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    &__content {
+      color: #fff;
+    }
+  }
 }
 </style>

@@ -2,18 +2,22 @@
   <div id="app">
     <Status></Status>
     <CommandList></CommandList>
+    <Comment></Comment>
+    {{ this.$store.state.command }}
   </div>
 </template>
 
 <script>
 import CommandList from './components/Commandlist.vue'
 import Status from './components/Status.vue'
+import Comment from './components/Comment.vue'
 
 export default {
   name: 'App',
   components: {
     CommandList,
-    Status
+    Status,
+    Comment
   },
 }
 </script>
@@ -54,5 +58,6 @@ ul {
   margin-top: 20px;
   position: relative;
   margin: 50px;
+  height: 100%;
 }
 </style>

@@ -1,28 +1,26 @@
 <template>
   <div class="">
     <div class="commands">
-      <List :items="commands" @close="sample"></List>
+      <List :items="commands" :clickFunc="childClick"
+      :mouseOverFunc="childMouseOver"
+      :mouseLeaveFunc=childMouseLeave></List>
     </div>
     <Item :item="item"></Item>
-    <Comment :message="message" v-show="message"></Comment>
   </div>
 </template>
 
 <script>
-import Comment from './Comment.vue'
 import Item from './Item.vue'
 import List from './List.vue'
 
 export default {
   components: {
-    Comment,
     Item,
     List
   },
   name: 'list',
   data() {
     return {
-      message: '',
       commands: [
         { 'title': 'はなす', message: '話す相手がいません' },
         { 'title': 'とくぎ' },
@@ -35,13 +33,18 @@ export default {
     }
   },
   methods: {
-    sample(i) {
-      this.message = ""
-      if(i==0 || i==3){
-        this.message = this.commands[i].message
-      } else if(i==3) {
+    childClick(index) {
+      this.$store.commit('changeMessage', '')
+      this.$store.commit('changeCommand', index)
+      if(index==0 || index==3){
+        this.$store.commit('changeMessage', this.commands[index].message)
+      } else if(index==3) {
         this.item = true
       }
+    },
+    childMouseOver(index) {
+    },
+    childMouseLeave(){
     }
   }
 }

@@ -56,6 +56,8 @@ export default {
     margin: 0 5px;
     padding: 0 10px;
     position: absolute;
+    min-width: 80px;
+    display: block;
     color: #ddd;
     top: 0;
     transform: translateY(-50%);
