@@ -23,7 +23,7 @@ export default {
   padding: 10px;
   margin: 10px;
   text-align: left;
-  color: #ddd;
+  color: #fff;
   &__sign {
     text-align: center;
     animation: flashing 1.0s;

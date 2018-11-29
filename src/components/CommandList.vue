@@ -2,23 +2,28 @@
   <div class="wrapper">
     <ul class="list">
       <li class="list__item"
-        v-for="item in command_items"
-        v-on:click="sample(item)">
+        v-for="(item, index) in command_items"
+        v-on:click="sample(index)">
         <span class="item_selected">▶︎</span>
         {{ item.title }}</li>
     </ul>
     <div v-show="message">
       <Comment :message="message"></Comment>
     </div>
+    <div v-show="item">
+      <Item></Item>
+    </div>
   </div>
 </template>
 
 <script>
 import Comment from './Comment.vue'
+import Item from './Item.vue'
 
 export default {
   components: {
-    Comment
+    Comment,
+    Item
   },
   name: 'list',
   data() {
@@ -28,15 +33,25 @@ export default {
         { 'title': 'はなす', message: '話す相手がいません' },
         { 'title': 'とくぎ' },
         { 'title': 'どうぐ' },
-        { 'title': 'しらべる' },
+        { 'title': 'しらべる', message: 'なにも見つからなかった' },
         { 'title': 'つよさ' },
         { 'title': 'さくせん'}
-      ]
+      ],
+      item: false
     }
   },
   methods: {
     sample(e) {
-      this.message = e.message
+      if( e == 0 || e == 3 ){
+        this.message = this.command_items[e].message
+      } else {
+        this.message = ""
+      }
+      if( e == 2 ) {
+        this.item = true
+      } else {
+        this.item = false
+      }
     }
   }
 }
@@ -56,10 +71,9 @@ export default {
   list-style: none;
   text-align: left;
   &__item {
-    color: #ddd;
+    color: #fff;
     width: 100%;
     &:hover {
-      color: #fff;
       .item_selected {
         display: inline-block;
         animation: flashing 1.0s;

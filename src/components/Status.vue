@@ -39,7 +39,7 @@ export default {
   list-style: none;
   text-align: left;
   &__item {
-    color: #ddd;
+    color: #fff;
     .item__label {
       width: 45%;
       display: inline-block;
