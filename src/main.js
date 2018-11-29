@@ -11,8 +11,22 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     command: null,
+    who: null,
     item: null,
-    message: ''
+    message: '',
+      items: [
+        { belongings: [
+          { 'title': 'どうのつるぎ', 'description': '銅の剣' },
+          { 'title': 'アモールの水', 'description': 'HPを60回復させる' },
+          { 'title': 'やくそう', 'description': 'HPを30回復させる' },
+          { 'title': 'MacBook Pro', 'description': 'Apple純正MacBookPro' },
+          { 'title': 'iPhone7', 'description': 'Apple純正iPhone7' }
+        ]},
+        { bag: [
+          { 'title': 'ふしぎなタネ', 'description': 'MPを1~3あげる' },
+          { 'title': 'せかいじゅのしずく', 'description': '味方全体のHPを全回復させる' }
+        ]}
+      ],
   },
   mutations: {
     changeCommand(state, n) {
@@ -23,6 +37,9 @@ const store = new Vuex.Store({
     },
     changeItem(state, n) {
       state.item = n
+    },
+    changeWho(state, n) {
+      state.who = n
     }
   }
 })
