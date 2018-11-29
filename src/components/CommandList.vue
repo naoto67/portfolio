@@ -22,7 +22,6 @@ export default {
   name: 'list',
   data() {
     return {
-      data: [],
       message: '',
       commands: [
         { 'title': 'はなす', message: '話す相手がいません' },

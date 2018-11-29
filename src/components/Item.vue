@@ -1,5 +1,6 @@
 <template>
   <div class="item">
+    <List :items="title"></List>
     <List :items="items"></List>
     <List :items="bag"></List>
   </div>
@@ -16,6 +17,10 @@ export default {
   props: ['item'],
   data() {
     return {
+      title: [
+        { 'title': '加藤純一' },
+        { 'title': 'ふくろ' }
+      ],
       items: [
         { 'title': 'どうのつるぎ' },
         { 'title': 'アモールの水' },
