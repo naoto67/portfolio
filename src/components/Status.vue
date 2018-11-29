@@ -29,13 +29,15 @@ export default {
 
 <style lang="scss" scoped>
 .status {
-  position: relative;
+  display: block;
   width: 100px;
   border: 1px #fff solid;
   border-radius: 10px;
   background-color: #000;
   padding: 10px;
-  margin: 10px;
+  margin: 0 10px;
+  top: 0;
+  left: 0;
   list-style: none;
   text-align: left;
   &__item {

@@ -1,33 +1,43 @@
 <template>
   <div class="item">
-    <ul>
-      <li v-for="item in items">
-        {{ item }}
-      </li>
-      <li v-for="item in bag">
-        {{ item }}
-      </li>
-    </ul>
+    <List :items="items"></List>
+    <List :items="bag"></List>
   </div>
 </template>
 
 <script>
+import List from './List.vue'
+
 export default {
   name: 'Item',
+  components: {
+    List
+  },
+  props: ['item'],
   data() {
     return {
       items: [
-        'どうのつるぎ',
-        'アモールの水',
-        'やくそう',
-        'MacBook Pro',
-        'iPhone7'
+        { 'title': 'どうのつるぎ' },
+        { 'title': 'アモールの水' },
+        { 'title': 'やくそう' },
+        { 'title': 'MacBook Pro' },
+        { 'title': 'iPhone7' }
       ],
       bag: [
-        'ふしぎなタネ',
-        'せかいじゅのしずく'
+        { 'title': 'ふしぎなタネ' },
+        { 'title': 'せかいじゅのしずく'}
       ]
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.item {
+  width: 200px;
+  position: absolute;
+  margin: 0 10px;
+  right: 0;
+  top: 0;
+}
+</style>

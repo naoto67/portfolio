@@ -20,8 +20,8 @@ export default {
 
 <style>
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 @font-face {
   font-family: 'PixelMplus10-Regular';
@@ -50,8 +50,9 @@ ul {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
+  position: relative;
+  margin: 50px;
 }
 </style>

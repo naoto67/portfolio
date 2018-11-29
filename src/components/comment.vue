@@ -16,18 +16,19 @@ export default {
 
 <style lang="scss" scoped>
 .comment {
-  width: 80vw;
   border: 1px #fff solid;
   border-radius: 10px;
   background-color: #000;
-  padding: 10px;
-  margin: 10px;
   text-align: left;
+  margin: 10px;
   color: #fff;
   &__sign {
     text-align: center;
     animation: flashing 1.0s;
     animation-iteration-count: infinite; 
+  }
+  &__content {
+    padding: 10px;
   }
 }
 </style>

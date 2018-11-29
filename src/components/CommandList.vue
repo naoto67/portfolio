@@ -1,35 +1,30 @@
 <template>
-  <div class="wrapper">
-    <ul class="list">
-      <li class="list__item"
-        v-for="(item, index) in command_items"
-        v-on:click="sample(index)">
-        <span class="item_selected">▶︎</span>
-        {{ item.title }}</li>
-    </ul>
-    <div v-show="message">
-      <Comment :message="message"></Comment>
+  <div class="">
+    <div class="commands">
+      <List :items="commands" @close="sample"></List>
     </div>
-    <div v-show="item">
-      <Item></Item>
-    </div>
+    <Item :item="item"></Item>
+    <Comment :message="message" v-show="message"></Comment>
   </div>
 </template>
 
 <script>
 import Comment from './Comment.vue'
 import Item from './Item.vue'
+import List from './List.vue'
 
 export default {
   components: {
     Comment,
-    Item
+    Item,
+    List
   },
   name: 'list',
   data() {
     return {
+      data: [],
       message: '',
-      command_items: [
+      commands: [
         { 'title': 'はなす', message: '話す相手がいません' },
         { 'title': 'とくぎ' },
         { 'title': 'どうぐ' },
@@ -41,16 +36,12 @@ export default {
     }
   },
   methods: {
-    sample(e) {
-      if( e == 0 || e == 3 ){
-        this.message = this.command_items[e].message
-      } else {
-        this.message = ""
-      }
-      if( e == 2 ) {
+    sample(i) {
+      this.message = ""
+      if(i==0 || i==3){
+        this.message = this.commands[i].message
+      } else if(i==3) {
         this.item = true
-      } else {
-        this.item = false
       }
     }
   }
@@ -58,32 +49,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
-  display: flex;
-}
-.list {
-  width: 100px;
-  border: 1px #fff solid;
-  border-radius: 10px;
-  background-color: #000;
-  padding: 10px;
+.commands {
+  width: 120px;
+  display: inline-block;
+  position: flex;
   margin: 10px;
-  list-style: none;
-  text-align: left;
-  &__item {
-    color: #fff;
-    width: 100%;
-    &:hover {
-      .item_selected {
-        display: inline-block;
-        animation: flashing 1.0s;
-        animation-iteration-count: infinite; 
-      }
-    }
-    .item_selected {
-      font-size: 0.6em;
-      display: none;
-    }
-  }
 }
 </style>
