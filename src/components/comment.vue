@@ -1,15 +1,23 @@
 <template>
-  <div class="comment" v-show="this.$store.state.message">
+  <div class="comment" v-if="this.$store.state.message">
     <div class="comment__content">
-      <p>{{ this.$store.state.message }}</p>
+      <vue-typer v-bind:text="this.$store.state.message"
+        :repeat='1'
+        eraseStyle='clear'
+        ></vue-typer>
     </div>
     <p class="comment__sign">▼</p>
   </div>
 </template>
 
 <script>
+import { VueTyper } from 'vue-typer'
+
 export default {
   name: 'Comment',
+  components: {
+    VueTyper
+  },
 }
 </script>
 
@@ -29,5 +37,11 @@ export default {
   &__content {
     padding: 10px;
   }
+}
+</style>
+
+<style>
+.vue-typer .custom.char {
+  color: #fff;
 }
 </style>
