@@ -1,20 +1,13 @@
 <template>
   <div class="item" v-show="2==this.$store.state.command">
     <div class="item__title">
-      <List
-      :items="title" :click-func="childClick"
-      :mouseOverFunc="childMouseOver"
-      :mouseLeaveFunc="childMouseLeave"></List>
+      <List :items="title" :clickFunc="childClick"></List>
     </div>
     <div class="item__items">
       <List :items="items[0].belongings" v-show="0==this.$store.state.who"
-      :mouseOverFunc="pass"
-      :mouseLeaveFunc="pass"
-      :clickFunc="pass"></List>
+      :mouseOverFunc="pass"></List>
       <List :items="items[1].belongings" v-show="1==this.$store.state.who"
-      :mouseOverFunc="pass"
-      :mouseLeaveFunc="pass"
-      :clickFunc="pass"></List>
+      :mouseOverFunc="pass"></List>
     </div>
     <div class="item__detail" 
       v-if="item">
@@ -60,16 +53,13 @@ export default {
   },
   methods: {
     childClick(index) {
-    },
-    childMouseOver(index) {
       this.$store.commit('changeWho', index)
       this.item = ''
     },
-    childMouseLeave() {
-      // this.$store.commit('changeItem', null)
+    childMouseOver(index) {
+      this.$store.commit('changeWho', index)
     },
     pass(index) {
-      if( index == null ){ return }
       this.$store.commit('changeItem', index)
       this.item = true
     },

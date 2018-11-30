@@ -22,12 +22,15 @@ export default{
   ],
   methods: {
     click(index) {
+      if(this.clickFunc == null) { return }
       this.clickFunc(index)
     },
     mouseover(index) {
+      if(this.mouseOverFunc == null) { return }
       this.mouseOverFunc(index)
     },
     mouseleave() {
+      if(this.mouseLeaveFunc == null) { return }
       this.mouseLeaveFunc()
     }
   }
