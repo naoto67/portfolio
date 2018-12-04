@@ -2,7 +2,7 @@
   <div class="comment" v-if="this.$store.state.message">
     <div class="comment__content">
       <vue-typer v-bind:text="this.$store.state.message"
-        :repeat='1'
+        :repeat='0'
         eraseStyle='clear'
         ></vue-typer>
     </div>

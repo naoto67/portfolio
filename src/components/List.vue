@@ -31,7 +31,7 @@ export default{
     },
     mouseleave() {
       if(this.mouseLeaveFunc == null) { return }
-      this.mouseLeaveFunc()
+      this.mouseLeaveFunc(null)
     }
   }
 }

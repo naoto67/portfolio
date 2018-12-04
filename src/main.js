@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import Vuex from 'vuex'
 
+
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
@@ -30,6 +31,8 @@ const store = new Vuex.Store({
   },
   mutations: {
     changeCommand(state, n) {
+      state.who = null
+      state.item = null
       state.command = n
     },
     changeMessage(state, msg) {
@@ -43,6 +46,7 @@ const store = new Vuex.Store({
     }
   }
 })
+
 
 /* eslint-disable no-new */
 var vm = new Vue({

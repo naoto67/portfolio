@@ -3,7 +3,6 @@
     <Status></Status>
     <CommandList></CommandList>
     <Comment></Comment>
-    {{ this.$store.state.command }}
   </div>
 </template>
 

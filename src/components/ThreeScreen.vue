@@ -1,20 +1,17 @@
 <template>
-  <div class="item" v-show="2==this.$store.state.command">
+  <div class="item" v-show="1==this.$store.state.command">
     <div class="item__title">
       <List :items="title" :clickFunc="childClick"></List>
     </div>
     <div class="item__items">
-      <List :items="items[0].belongings" v-show="0==this.$store.state.who"
-      :mouseOverFunc="pass"
-      :mouseLeaveFunc="pass"></List>
-      <List :items="items[1].belongings" v-show="1==this.$store.state.who"
-      :mouseOverFunc="pass"
+      <List :items="items" v-show="0==this.$store.state.who"
+      :mouseOverFunc="pass" 
       :mouseLeaveFunc="pass"></List>
     </div>
     <div class="item__detail" 
-         v-if="this.$store.state.item!=null">
+      v-if="this.$store.state.item!=null">
       <h4 class="item__detail__content">
-        {{ this.items[this.$store.state.who].belongings[this.$store.state.item].description }}
+        {{ items[this.$store.state.item].detail }}
       </h4>
     </div>
   </div>
@@ -24,29 +21,20 @@
 import List from './List.vue'
 
 export default {
-  name: 'Item',
+  name: 'ThreeScreen',
+  props: ['items'],
   components: {
     List
   },
   data() {
     return {
       title: [
-        { 'title': '加藤純一' },
-        { 'title': 'ふくろ' }
+        { 'title': '加藤純一' }
       ],
-      item: false,
-      items: [
-        { belongings: [
-          { 'title': 'どうのつるぎ', 'description': '銅の剣' },
-          { 'title': 'アモールの水', 'description': 'HPを60回復させる' },
-          { 'title': 'やくそう', 'description': 'HPを30回復させる' },
-          { 'title': 'MacBook Pro', 'description': 'Apple純正MacBookPro' },
-          { 'title': 'iPhone7', 'description': 'Apple純正iPhone7' }
-        ]},
-        { belongings: [
-          { 'title': 'ふしぎなタネ', 'description': 'MPを1~3あげる' },
-          { 'title': 'せかいじゅのしずく', 'description': '味方全体のHPを全回復させる' }
-        ]}
+      skills: [
+        { 'title': 'Ruby on Rails', 'detail': '主な開発言語。書き始めて8ヶ月。' },
+        { 'title': 'vue.js', 'detail': 'このサイトはvue.jsで書かれています。初めてです。'},
+        { 'title': 'swift', 'detail': '普段vimで書いてるせいかXcodeに感動してるレベルです。'}
       ],
     } 
   },
@@ -56,7 +44,6 @@ export default {
   methods: {
     childClick(index) {
       this.$store.commit('changeWho', index)
-      this.item = ''
     },
     childMouseOver(index) {
       this.$store.commit('changeWho', index)

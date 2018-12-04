@@ -5,18 +5,23 @@
       :mouseOverFunc="childMouseOver"
       :mouseLeaveFunc=childMouseLeave></List>
     </div>
-    <Item :item="item"></Item>
+    <Item v-if="2==this.$store.state.command"></Item>
+    <Skill v-if="1==this.$store.state.command"></Skill>
   </div>
 </template>
 
 <script>
 import Item from './Item.vue'
 import List from './List.vue'
+import Skill from './Skill.vue'
+import ThreeScreen from './ThreeScreen.vue'
 
 export default {
   components: {
     Item,
-    List
+    List,
+    Skill,
+    ThreeScreen
   },
   name: 'list',
   data() {
@@ -28,8 +33,7 @@ export default {
         { 'title': 'しらべる', message: 'なにも見つからなかった' },
         { 'title': 'つよさ' },
         { 'title': 'さくせん'}
-      ],
-      item: false
+      ]
     }
   },
   methods: {
@@ -39,7 +43,7 @@ export default {
       if(index==0 || index==3){
         this.$store.commit('changeMessage', this.commands[index].message)
       } else if(index==3) {
-        this.item = true
+        
       }
     },
     childMouseOver(index) {
