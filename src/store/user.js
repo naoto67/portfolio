@@ -10,11 +10,11 @@ const user = new Vuex.Store({
     mp: '999',
     lv: '99',
     property: [
-      { 'title': 'どうのつるぎ', 'description': '銅の剣' },
-      { 'title': 'アモールの水', 'description': 'HPを60回復させる' },
-      { 'title': 'やくそう', 'description': 'HPを30回復させる' },
-      { 'title': 'MacBook Pro', 'description': 'Apple純正MacBookPro' },
-      { 'title': 'iPhone7', 'description': 'Apple純正iPhone7' }
+      { 'title': 'どうのつるぎ', 'detail': '銅の剣' },
+      { 'title': 'アモールの水', 'detail': 'HPを60回復させる' },
+      { 'title': 'やくそう', 'detail': 'HPを30回復させる' },
+      { 'title': 'MacBook Pro', 'detail': 'Apple純正MacBookPro' },
+      { 'title': 'iPhone7', 'detail': 'Apple純正iPhone7' }
     ],
     skills: [
       { 'title': 'Ruby on Rails', 'detail': '主な開発言語。書き始めて8ヶ月。' },

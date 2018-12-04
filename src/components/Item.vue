@@ -1,13 +1,10 @@
 <template>
   <div class="item" v-show="2==this.$store.state.command">
     <div class="item__title">
-      <List :items="title" :clickFunc="childClick"></List>
+      <List :items="titles" :clickFunc="childClick"></List>
     </div>
-    <div class="item__items">
-      <List :items="items[0].belongings" v-show="0==this.$store.state.who"
-      :mouseOverFunc="pass"
-      :mouseLeaveFunc="pass"></List>
-      <List :items="items[1].belongings" v-show="1==this.$store.state.who"
+    <div class="item__items" v-for="(sample, index) in samples">
+      <List :items="sample" v-if="index==item"
       :mouseOverFunc="pass"
       :mouseLeaveFunc="pass"></List>
     </div>
@@ -22,19 +19,16 @@
 
 <script>
 import List from './List.vue'
+import ThreeScreen from './ThreeScreen.vue'
 
 export default {
   name: 'Item',
   components: {
-    List
+    List,
+    ThreeScreen
   },
   data() {
     return {
-      title: [
-        { 'title': '加藤純一' },
-        { 'title': 'ふくろ' }
-      ],
-      item: false,
       items: [
         { belongings: [
           { 'title': 'どうのつるぎ', 'description': '銅の剣' },
@@ -51,7 +45,15 @@ export default {
     } 
   },
   computed: {
-    
+    samples() {
+      return [ this.$store.state.user.property, this.$store.state.user.property ]
+    },
+    titles() {
+      return [ { 'title': this.$store.state.user.name }, { 'title': 'ふくろ'} ]
+    },
+    item() {
+      return this.$store.state.item
+    }
   },
   methods: {
     childClick(index) {

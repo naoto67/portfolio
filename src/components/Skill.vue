@@ -1,6 +1,6 @@
 <template>
   <div class="skill">
-    <ThreeScreen :items="skills"></ThreeScreen>
+    <ThreeScreen :items="skills[0].skills" :titles="titles"></ThreeScreen>
   </div>
 </template>
 
@@ -14,7 +14,10 @@ export default {
   },
   computed: {
     skills() {
-      return this.$store.state.user.skills
+      return [{ title: this.$store.state.user.name, skills: this.$store.state.user.skills}]
+    },
+    titles() {
+      return [{ 'title': this.$store.state.user.name }]
     }
   }
 }

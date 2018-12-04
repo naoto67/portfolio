@@ -1,18 +1,21 @@
 <template>
   <div class="item" v-show="1==this.$store.state.command">
     <div class="item__title">
-      <List :items="title" :clickFunc="childClick"></List>
+      <List :items="titles" :clickFunc="childClick"></List>
     </div>
-    <div class="item__items">
-      <List :items="items" v-show="0==this.$store.state.who"
-      :mouseOverFunc="pass" 
-      :mouseLeaveFunc="pass"></List>
-    </div>
-    <div class="item__detail" 
-      v-if="this.$store.state.item!=null">
-      <h4 class="item__detail__content">
-        {{ items[this.$store.state.item].detail }}
-      </h4>
+    <div class="item__items" v-for="(item, index) in items">
+      <div v-show="index==$store.state.who">
+        <List :items="items"
+        :mouseOverFunc="pass" 
+        :mouseLeaveFunc="pass" 
+        ></List>
+        <div class="item__detail" 
+          v-if="$store.state.item!=null">
+          <span class="item__detail__content">
+            {{ items[$store.state.item].detail }}
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -22,24 +25,9 @@ import List from './List.vue'
 
 export default {
   name: 'ThreeScreen',
-  props: ['items'],
+  props: ['items', 'titles'],
   components: {
     List
-  },
-  data() {
-    return {
-      title: [
-        { 'title': '加藤純一' }
-      ],
-      skills: [
-        { 'title': 'Ruby on Rails', 'detail': '主な開発言語。書き始めて8ヶ月。' },
-        { 'title': 'vue.js', 'detail': 'このサイトはvue.jsで書かれています。初めてです。'},
-        { 'title': 'swift', 'detail': '普段vimで書いてるせいかXcodeに感動してるレベルです。'}
-      ],
-    } 
-  },
-  computed: {
-    
   },
   methods: {
     childClick(index) {
@@ -81,9 +69,6 @@ export default {
     padding: 10px;
     text-align: left;
     margin-bottom: 10px;
-    min-width: 150px;
-    max-width: 300px;
-    width: 100%;
     &__content {
       color: #fff;
     }
