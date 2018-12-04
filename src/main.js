@@ -3,13 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import Vuex from 'vuex'
-
+import user from './store/user.js'
 
 Vue.config.productionTip = false
 
-Vue.use(Vuex)
-
 const store = new Vuex.Store({
+  modules: {
+    user: user,
+  },
   state: {
     command: null,
     who: null,

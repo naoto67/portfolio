@@ -1,4 +1,7 @@
+import Vue from 'vue'
 import Vuex from 'vuex'
+
+Vue.use(Vuex)
 
 const user = new Vuex.Store({
   state: {
@@ -13,5 +16,12 @@ const user = new Vuex.Store({
       { 'title': 'MacBook Pro', 'description': 'Apple純正MacBookPro' },
       { 'title': 'iPhone7', 'description': 'Apple純正iPhone7' }
     ],
+    skills: [
+      { 'title': 'Ruby on Rails', 'detail': '主な開発言語。書き始めて8ヶ月。' },
+      { 'title': 'vue.js', 'detail': 'このサイトはvue.jsで書かれています。初めてです。'},
+      { 'title': 'swift', 'detail': '普段vimで書いてるせいかXcodeに感動してるレベルです。'}
+    ],
   }
 })
+
+export default user

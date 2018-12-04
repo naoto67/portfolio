@@ -12,13 +12,9 @@ export default {
   components: {
     ThreeScreen
   },
-  data() {
-    return {
-      skills: [
-        { 'title': 'Ruby on Rails', 'detail': '主な開発言語。書き始めて8ヶ月。' },
-        { 'title': 'vue.js', 'detail': 'このサイトはvue.jsで書かれています。初めてです。'},
-        { 'title': 'swift', 'detail': '普段vimで書いてるせいかXcodeに感動してるレベルです。'}
-      ],
+  computed: {
+    skills() {
+      return this.$store.state.user.skills
     }
   }
 }
