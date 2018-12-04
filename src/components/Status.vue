@@ -1,9 +1,9 @@
 <template>
   <div class="status">
-    <h4 class="status__name">{{ name }}</h4>
+    <h4 class="status__name">{{ status.name }}</h4>
     <ul>
       <li class="status__item"
-        v-for="(value, key) in status">
+        v-for="(value, key) in status.status">
         <div class="item__label">{{ key }} :</div>
         <div class="item__data">{{ value }}</div>
       </li>
@@ -17,10 +17,17 @@ export default {
   data() {
     return {
       name: '加藤純一',
-      status: {
-        HP: '999',
-        MP: '999',
-        Lv: '99'
+    }
+  },
+  computed: {
+    status() {
+      return { 
+        name: this.$store.state.user.name,
+        status: {
+          HP: this.$store.state.user.hp,
+          MP: this.$store.state.user.mp,
+          Lv: this.$store.state.user.lv
+        }
       }
     }
   }

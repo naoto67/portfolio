@@ -21,7 +21,7 @@ const user = new Vuex.Store({
       { 'title': 'vue.js', 'detail': 'このサイトはvue.jsで書かれています。初めてです。'},
       { 'title': 'swift', 'detail': '普段vimで書いてるせいかXcodeに感動してるレベルです。'}
     ],
-  }
+  },
 })
 
 export default user
