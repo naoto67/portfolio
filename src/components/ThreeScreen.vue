@@ -1,5 +1,5 @@
 <template>
-  <div class="item" v-show="1==this.$store.state.command">
+  <div class="item">
     <div class="item__title">
       <List :items="titles" :clickFunc="childClick"></List>
     </div>
@@ -9,12 +9,14 @@
         :mouseOverFunc="pass" 
         :mouseLeaveFunc="pass" 
         ></List>
-        <div class="item__detail" 
-          v-if="$store.state.item!=null">
-          <span class="item__detail__content">
-            {{ items[$store.state.item].detail }}
-          </span>
-        </div>
+      </div>
+    </div>
+    <div v-for="(item, index) in items">
+      <div class="item__detail" 
+        v-if="$store.state.item!=null&&$store.state.who==index">
+        <span class="item__detail__content">
+          {{ items[$store.state.item].detail }}
+        </span>
       </div>
     </div>
   </div>
@@ -49,17 +51,13 @@ export default {
   position: absolute;
   top: 0px;
   bottom: 0px;
-  left: 200px;
-  width: 40vw;
+  left: 180px;
   &__title {
     width: 120px;
     display: inline-block;
     vertical-align: top;
   }
   &__items {
-    min-width: 150px;
-    max-width: 200px;
-    width: 100%;
     display: inline-block;
   }
   &__detail {

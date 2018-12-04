@@ -5,8 +5,8 @@
       :mouseOverFunc="childMouseOver"
       :mouseLeaveFunc=childMouseLeave></List>
     </div>
-    <Item v-if="2==this.$store.state.command"></Item>
     <Skill v-if="1==this.$store.state.command"></Skill>
+    <Item v-if="2==this.$store.state.command"></Item>
   </div>
 </template>
 
