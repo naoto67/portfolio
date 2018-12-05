@@ -7,6 +7,7 @@
     </div>
     <Skill v-if="1==this.$store.state.command"></Skill>
     <Item v-if="2==this.$store.state.command"></Item>
+    <Strategy v-if="5==this.$store.state.command"></Strategy>
   </div>
 </template>
 
@@ -15,12 +16,14 @@ import Item from './Item.vue'
 import List from './List.vue'
 import Skill from './Skill.vue'
 import ThreeScreen from './ThreeScreen.vue'
+import Strategy from './Strategy.vue'
 
 export default {
   components: {
     Item,
     List,
     Skill,
+    Strategy,
     ThreeScreen
   },
   name: 'list',

@@ -7,6 +7,7 @@
       @mouseleave="mouseleave(index)">
       <span class="item_selected">▶︎</span>
       {{ item.title }}
+      <span class="blank">▷</span>
     </li>
   </ul>
 </template>
@@ -48,17 +49,23 @@ export default{
   margin-bottom: 10px;
   &__item {
     color: #fff;
-    width: 100%;
     &:hover {
       .item_selected {
         display: inline-block;
         animation: flashing 1.0s;
         animation-iteration-count: infinite; 
       }
+      .blank {
+        display: none;
+      }
     }
     .item_selected {
       font-size: 0.6em;
       display: none;
+    }
+    .blank {
+      visibility: hidden;
+      display: inline-block;
     }
   }
 }
