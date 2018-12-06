@@ -1,6 +1,6 @@
 <template>
   <ul class="strategy">
-    <li class="strategy__item" v-for="item in strategies">
+    <li class="strategy__item" v-for="item in strategies" @click="updateStrategy(item)">
       <span class="item_selected">▶︎</span>
       {{ item.title }}
       <span class="blank"></span>
@@ -19,6 +19,11 @@ export default {
   computed: {
     strategies() {
       return this.$store.state.strategies
+    }
+  },
+  methods: {
+    updateStrategy(item) {
+      this.$store.commit('changeStrategy', item.title)
     }
   }
 }

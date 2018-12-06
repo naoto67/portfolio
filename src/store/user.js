@@ -9,6 +9,10 @@ const user = new Vuex.Store({
     hp: '999',
     mp: '999',
     lv: '99',
+    at: '999',
+    df: '999',
+    sp: '999',
+    it: '999',
     property: [
       { 'title': 'どうのつるぎ', 'detail': '銅の剣' },
       { 'title': 'アモールの水', 'detail': 'HPを60回復させる' },
