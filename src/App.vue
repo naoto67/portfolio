@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Command from './components/Commandlist.vue'
+import Command from './components/Command.vue'
 import Status from './components/Status.vue'
 import Comment from './components/Comment.vue'
 

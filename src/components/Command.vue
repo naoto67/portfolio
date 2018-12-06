@@ -5,10 +5,10 @@
       :mouseOverFunc="childMouseOver"
       :mouseLeaveFunc=childMouseLeave></List>
     </div>
-    <Skill v-if="1==this.$store.state.command"></Skill>
-    <Item v-if="2==this.$store.state.command"></Item>
-    <Strength v-if="4==this.$store.state.command"></Strength>
-    <Strategy v-if="5==this.$store.state.command"></Strategy>
+    <Skill v-if="1==command"></Skill>
+    <Item v-if="2==command"></Item>
+    <Strength v-if="4==command"></Strength>
+    <Strategy v-if="5==command"></Strategy>
   </div>
 </template>
 
@@ -31,6 +31,9 @@ export default {
   computed: {
     commands() {
       return this.$store.state.commands
+    },
+    command(){
+      return this.$store.state.command
     }
   },
   methods: {
