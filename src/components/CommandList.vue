@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="command">
     <div class="commands">
       <List :items="commands" :clickFunc="childClick"
       :mouseOverFunc="childMouseOver"
@@ -27,17 +27,10 @@ export default {
     Strength,
     Strategy,
   },
-  name: 'list',
-  data() {
-    return {
-      commands: [
-        { 'title': 'はなす', message: '話す相手がいません' },
-        { 'title': 'とくぎ' },
-        { 'title': 'どうぐ' },
-        { 'title': 'しらべる', message: 'なにも見つからなかった' },
-        { 'title': 'つよさ' },
-        { 'title': 'さくせん'}
-      ]
+  name: 'Command',
+  computed: {
+    commands() {
+      return this.$store.state.commands
     }
   },
   methods: {

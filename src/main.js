@@ -23,6 +23,14 @@ const store = new Vuex.Store({
       { title: 'いのちをだいじに' },
       { title: 'じゅもんつかうな' },
       { title: 'めいれいさせろ' },
+    ],
+    commands: [
+      { 'title': 'はなす', message: '話す相手がいません' },
+      { 'title': 'とくぎ' },
+      { 'title': 'どうぐ' },
+      { 'title': 'しらべる', message: 'なにも見つからなかった' },
+      { 'title': 'つよさ' },
+      { 'title': 'さくせん'}
     ]
   },
   mutations: {

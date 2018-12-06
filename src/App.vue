@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <Status></Status>
-    <CommandList></CommandList>
+    <Command></Command>
     <Comment></Comment>
   </div>
 </template>
 
 <script>
-import CommandList from './components/Commandlist.vue'
+import Command from './components/Commandlist.vue'
 import Status from './components/Status.vue'
 import Comment from './components/Comment.vue'
 
 export default {
   name: 'App',
   components: {
-    CommandList,
+    Command,
     Status,
     Comment
   },
