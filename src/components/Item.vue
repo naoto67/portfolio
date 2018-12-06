@@ -1,5 +1,5 @@
 <template>
-  <div class="item" v-show="2==this.$store.state.command">
+  <div class="item">
     <ThreeScreen :items="items[0]" :titles="titles"></ThreeScreen>
   </div>
 </template>

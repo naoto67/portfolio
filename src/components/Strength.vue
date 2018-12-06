@@ -3,13 +3,13 @@
     <div class="strength__person">
       <List :items="status.name" :clickFunc="click"></List>
     </div>
-    <div class="strength__overview" v-if="0==this.$store.state.who">
+    <div class="strength__overview" v-if="0==who">
       <p class="overview_name">{{ status.name[0].title }}</p>
       <p>職業:姫</p>
       <p>レベル:{{ status.status.Lv }}</p>
       <p class="overview_strategy">{{ status.strategy }}</p>
     </div>
-    <ul class="strength__status strength__overview" v-if="0==this.$store.state.who">
+    <ul class="strength__status strength__overview" v-if="0==who">
       <li v-for="(value, key) in status.status">
         <span>{{ key }} : </span>
         <span class="status_value">{{ value }}</span>
@@ -41,6 +41,9 @@ export default {
         },
         strategy: this.$store.state.strategy
       }
+    },
+    who() {
+      return this.$store.state.who
     }
   },
   methods: {

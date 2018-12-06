@@ -4,7 +4,7 @@
       <List :items="titles" :clickFunc="childClick"></List>
     </div>
     <div class="item__items" v-for="(item, index) in items">
-      <div v-show="index==$store.state.who">
+      <div v-show="index==who">
         <List :items="items"
         :mouseOverFunc="pass" 
         :mouseLeaveFunc="pass" 
@@ -13,9 +13,9 @@
     </div>
     <div v-for="(item, index) in items">
       <div class="item__detail" 
-        v-if="$store.state.item!=null&&$store.state.who==index">
+        v-if="current_item!=null&&who==index">
         <span class="item__detail__content">
-          {{ items[$store.state.item].detail }}
+          {{ items[current_item].detail }}
         </span>
       </div>
     </div>
@@ -30,6 +30,14 @@ export default {
   props: ['items', 'titles'],
   components: {
     List
+  },
+  computed: {
+    who() {
+      return this.$store.state.who
+    },
+    current_item() {
+      return this.$store.state.item
+    }
   },
   methods: {
     childClick(index) {

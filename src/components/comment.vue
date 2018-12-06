@@ -1,7 +1,7 @@
 <template>
-  <div class="comment" v-if="this.$store.state.message">
+  <div class="comment" v-if="comment">
     <div class="comment__content">
-      <vue-typer v-bind:text="this.$store.state.message"
+      <vue-typer v-bind:text="comment"
         :repeat='0'
         eraseStyle='clear'
         ></vue-typer>
@@ -18,6 +18,11 @@ export default {
   components: {
     VueTyper
   },
+  computed: {
+    comment() {
+      return this.$store.state.comment
+    }
+  }
 }
 </script>
 

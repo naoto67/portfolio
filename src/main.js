@@ -15,7 +15,7 @@ const store = new Vuex.Store({
     command: null,
     who: null,
     item: null,
-    message: '',
+    comment: '',
     strategy: 'ガンガンいこうぜ',
     strategies: [
       { title: 'ガンガンいこうぜ' },
@@ -40,7 +40,7 @@ const store = new Vuex.Store({
       state.command = n
     },
     changeMessage(state, msg) {
-      state.message = msg
+      state.comment = msg
     },
     changeItem(state, n) {
       state.item = n
