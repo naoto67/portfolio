@@ -39,13 +39,25 @@ const user = {
     }
   },
   getters: {
-    randomSpeaking: (state, getters) => (id) => {
+    speakingById: (state, getters) => (id) => {
       return state.comments.speakings[id]
     },
     speakingCount: (state) => {
       return state.comments.speakings.length
+    },
+    seekingById: (state) => (id) => {
+      return state.comments.seekings[id]
+    },
+    seekingCount: (state) => {
+      return state.comments.seekings.length
     }
   },
+  mutations: {
+    deleteSeekingById(state, id) {
+      state.property.push(state.comments.seekings[id])
+      state.comments.seekings.splice(id, 1)
+    }
+  }
 }
 
 export default user

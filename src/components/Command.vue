@@ -32,7 +32,7 @@ export default {
     },
     command(){
       return this.$store.state.command
-    }
+    },
   },
   methods: {
     childClick(index) {
@@ -40,10 +40,21 @@ export default {
       this.$store.commit('changeCommand', index)
       if (index==0){
         var id = Math.floor(Math.random() * Math.floor(this.$store.getters.speakingCount))
-        this.$store.commit('changeMessage', this.$store.getters.randomSpeaking(id))
+        this.$store.commit('changeMessage', this.$store.getters.speakingById(id))
       } else if (index==3) {
-        this.$store.commit('changeMessage', '何も見つからなかった')
+        var name = this.$store.state.user.name
+        if(this.$store.getters.seekingCount != 0) { 
+          var id = Math.floor(Math.random() * Math.floor(this.$store.getters.seekingCount))
+          var res = this.$store.getters.seekingById(id)
+          var msg = `${name}は${res.title}を見つけた`
+          this.$store.commit('changeMessage', msg)
+          this.$store.commit('deleteSeekingById', id)
+        } else {
+          var msg = `${name}は何も見つけられなかった`
+          this.$store.commit('changeMessage', msg)
+        }
       }
+      return 
     },
   }
 }
