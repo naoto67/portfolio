@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@vue/cli-service": "^3.2.0",
     "ajv": "^6.6.1",
     "express": "^4.16.4",
     "node-sass": "^4.10.0",
