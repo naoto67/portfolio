@@ -22,6 +22,14 @@ export default {
 </script>
 
 <style>
+@import './assets/sass/style.scss';
+@font-face {
+  font-family: 'ratio';
+  src: url('./assets/fonts/PixelMplus10-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -33,7 +41,7 @@ export default {
   100% { opacity: 0.0 }
 }
 body{
-  font-family: 'PixelMplus10-Regular';
+  font-family: 'ratio';
   position: absolute;
   width: 100%;
   height: 100%;
