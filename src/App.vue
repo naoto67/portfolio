@@ -26,10 +26,6 @@ export default {
   padding: 0;
   margin: 0;
 }
-@font-face {
-  font-family: 'PixelMplus10-Regular';
-  src: './assets/fonts/PixelMplus10-Regular.ttf' format('truetype');
-}
 @keyframes flashing {
   0% { opacity: 1.0 }
   50% { opacity: 1.0 }

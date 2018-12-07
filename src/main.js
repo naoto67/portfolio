@@ -5,6 +5,8 @@ import App from './App'
 import Vuex from 'vuex'
 import user from './store/user.js'
 
+import './assets/sass/style.scss'
+
 Vue.config.productionTip = false
 
 const store = new Vuex.Store({
