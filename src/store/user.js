@@ -39,14 +39,13 @@ const user = {
     }
   },
   getters: {
-    randomSpeaking: (state, getters) => {
-      var id = Math.floor(Math.random() * Math.floor(getters.speakingCount))
+    randomSpeaking: (state, getters) => (id) => {
       return state.comments.speakings[id]
     },
     speakingCount: (state) => {
       return state.comments.speakings.length
     }
-  }
+  },
 }
 
 export default user

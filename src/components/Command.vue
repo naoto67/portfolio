@@ -1,9 +1,7 @@
 <template>
   <div class="command">
     <div class="commands">
-      <List :items="commands" :clickFunc="childClick"
-      :mouseOverFunc="childMouseOver"
-      :mouseLeaveFunc=childMouseLeave></List>
+      <List :items="commands" :clickFunc="childClick"></List>
     </div>
     <Skill v-if="1==command"></Skill>
     <Item v-if="2==command"></Item>
@@ -41,15 +39,12 @@ export default {
       this.$store.commit('changeMessage', '')
       this.$store.commit('changeCommand', index)
       if (index==0){
-        this.$store.commit('changeMessage', this.$store.getters.randomSpeaking)
+        var id = Math.floor(Math.random() * Math.floor(this.$store.getters.speakingCount))
+        this.$store.commit('changeMessage', this.$store.getters.randomSpeaking(id))
       } else if (index==3) {
         this.$store.commit('changeMessage', '何も見つからなかった')
       }
     },
-    childMouseOver(index) {
-    },
-    childMouseLeave(){
-    }
   }
 }
 </script>
