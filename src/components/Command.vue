@@ -40,10 +40,10 @@ export default {
     childClick(index) {
       this.$store.commit('changeMessage', '')
       this.$store.commit('changeCommand', index)
-      if(index==0 || index==3){
-        this.$store.commit('changeMessage', this.commands[index].message)
-      } else if(index==3) {
-        
+      if (index==0){
+        this.$store.commit('changeMessage', this.$store.getters.randomSpeaking)
+      } else if (index==3) {
+        this.$store.commit('changeMessage', '何も見つからなかった')
       }
     },
     childMouseOver(index) {
